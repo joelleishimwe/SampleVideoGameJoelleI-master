@@ -10,6 +10,9 @@
 -- Use Composer Library
 local composer = require( "composer" )
 
+-- use widget library
+--local composer = require( "widget")
+
 -- Name the Scene
 sceneName = "splash_screen"
 
@@ -26,7 +29,7 @@ local scene = composer.newScene( sceneName )
 local beetleship
 local scrollXSpeed = 8
 local scrollYSpeed = -3
-local jungleSounds = audio.loadSound("Sounds/animals144.mp3")
+local jungleSounds = audio.loadSound("Sounds/intro.mp3")
 local jungleSoundsChannel
 
 --------------------------------------------------------------------------------------------
@@ -58,7 +61,7 @@ function scene:create( event )
     display.setDefault("background", 0, 0, 0)
 
     -- Insert the beetleship image
-    beetleship = display.newImageRect("Images/beetleship.png", 200, 200)
+    beetleship = display.newImageRect("Images/cone.png", 200, 200)
 
     -- set the initial x and y position of the beetleship
     beetleship.x = 100

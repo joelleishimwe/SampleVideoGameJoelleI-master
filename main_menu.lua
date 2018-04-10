@@ -35,6 +35,7 @@ local scene = composer.newScene( sceneName )
 local bkg_image
 local playButton
 local creditsButton
+local instructionsButton
 
 -----------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
@@ -53,6 +54,9 @@ local function Level1ScreenTransition( )
 end    
 
 -- INSERT LOCAL FUNCTION DEFINITION THAT GOES TO INSTRUCTIONS SCREEN 
+local function InstructionsTransition( )
+    composer.gotoScene( "instructions_screen", {effect = "flipFadeOutIn", time = 500})
+end    
 
 -----------------------------------------------------------------------------------------
 -- GLOBAL SCENE FUNCTIONS
@@ -91,8 +95,10 @@ function scene:create( event )
         {   
             -- Set its position on the screen relative to the screen size
             x = display.contentWidth/2,
-            y = display.contentHeight*7/8,
-
+            y = 660,
+            width = 180,
+            height = 80,
+            
             -- Insert the images here
             defaultFile = "Images/Start Button Unpressed.png",
             overFile = "Images/Start Button Pressed.png",
@@ -107,8 +113,10 @@ function scene:create( event )
     creditsButton = widget.newButton( 
         {
             -- Set its position on the screen relative to the screen size
-            x = display.contentWidth*7/8,
-            y = display.contentHeight*7/8,
+            x = 850,
+            y = 700,
+            width = 180,
+            height = 80,            
 
             -- Insert the images here
             defaultFile = "Images/Credits Button Unpressed.png",
@@ -118,7 +126,24 @@ function scene:create( event )
             onRelease = CreditsTransition
         } ) 
     
+    -----------------------------------------------------------------------------------------
+    
     -- ADD INSTRUCTIONS BUTTON WIDGET
+    instructionsButton = widget.newButton( 
+        {
+            -- Set its position on the screen relative to the screen size
+            x = 200,
+            y = 700,
+            width = 180,
+            height = 80,
+
+            -- Insert the images here
+            defaultFile = "Images/Instructions Button.png",
+            overFile = "Images/Instructions Button Pressed.png",
+
+            -- When the button is released, call the Intructions transition function
+            onRelease = InstructionsTransition
+        } ) 
 
     -----------------------------------------------------------------------------------------
 
@@ -127,6 +152,7 @@ function scene:create( event )
     sceneGroup:insert( creditsButton )
     
     -- INSERT INSTRUCTIONS BUTTON INTO SCENE GROUP
+    sceneGroup:insert( instructionsButton )
 
 end -- function scene:create( event )   
 
