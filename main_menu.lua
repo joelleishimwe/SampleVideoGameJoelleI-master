@@ -6,6 +6,10 @@
 -- Description: This is the main menu, displaying the credits, instructions & play buttons.
 -----------------------------------------------------------------------------------------
 
+-- background music
+local backgroundSound = audio.loadSound("Sounds/background.mp3")
+local backgroundSoundChannel
+
 -----------------------------------------------------------------------------------------
 -- INITIALIZATIONS
 -----------------------------------------------------------------------------------------
@@ -177,12 +181,12 @@ function scene:show( event )
        
     -----------------------------------------------------------------------------------------
 
-    -- Called when the scene is now on screen.
-    -- Insert code here to make the scene come alive.
+    -- Called when the scene is now on screen. Insert code here to make the scene come alive.
     -- Example: start timers, begin animation, play audio, etc.
     elseif ( phase == "did" ) then       
         
-
+        -- play the background music
+        backgroundSoundChannel = audio.play(backgroundSound)
     end
 
 end -- function scene:show( event )

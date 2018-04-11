@@ -39,7 +39,8 @@ local jungleSoundsChannel
 -- The function that moves the beetleship across the screen
 local function moveBeetleship()
     beetleship.x = beetleship.x + scrollXSpeed
-    beetleship.y = beetleship.y + scrollYSpeed
+
+    beetleship.alpha = beetleship.alpha - 0.006
 end
 
 -- The function that will go to the main menu 
